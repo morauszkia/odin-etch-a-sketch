@@ -47,6 +47,12 @@ main {
   /* border: 0.5px solid #efefef; */
 }
 
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .control {
   display: flex;
   flex-direction: column;
@@ -80,10 +86,16 @@ main {
   text-transform: uppercase;
   background-color: #333;
   color: #fff;
+  border: none;
   transition: all 0.3s;
 }
 
 .btn:hover {
   background-color: #444;
   transform: scale(1.01);
+}
+
+.btn:active {
+  transform: scale(0.98);
+  background-color: #333;
 }

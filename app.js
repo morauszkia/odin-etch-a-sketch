@@ -1,15 +1,20 @@
 /* GRID */
 const gridContainer = document.getElementById('grid-container');
 /* SIZE INPUT */
-const gridSizeInputEl = document.getElementById('grid-size-input');
+const sizeInputEl = document.getElementById('grid-size-input');
 const sizeDisplayEl = document.getElementById('size-display');
 const sizeControlBtnEl = document.getElementById('size-control-btn');
+/* ERASE */
+const eraseBtnEl = document.getElementById('erase-btn');
+const resetBtnEl = document.getElementById('reset-btn');
 
-const state = {
+const DEFAULT_VALUES = {
   size: 16,
   color: '#333',
   isDrawing: false,
 };
+
+let state = { ...DEFAULT_VALUES };
 
 /* BASIC FUNCTIONALITY */
 const draw = (e) => {
@@ -48,14 +53,23 @@ const handleSizeChange = (e) => {
 - random color
 */
 
-/* ERASE BOARD */
+/* RESET DEFAULTS */
+const resetApp = () => {
+  state = { ...DEFAULT_VALUES };
+  sizeInputEl.value = state.size;
+  sizeDisplayEl.innerText = `${state.size}x${state.size}`;
+  createGrid();
+};
 
 /* EVENT LISTENERS */
 document.body.addEventListener('mousedown', () => (state.isDrawing = true));
 document.body.addEventListener('mouseup', () => (state.isDrawing = false));
 
-gridSizeInputEl.addEventListener('change', handleSizeChange);
+sizeInputEl.addEventListener('change', handleSizeChange);
 sizeControlBtnEl.addEventListener('click', createGrid);
+
+eraseBtnEl.addEventListener('click', createGrid);
+resetBtnEl.addEventListener('click', resetApp);
 
 /* INITIALIZE */
 createGrid();
