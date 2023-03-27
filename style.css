@@ -10,16 +10,27 @@ html {
 
 body {
   background-image: linear-gradient(to bottom right, #eee, #ddd);
-  font-family: 'Yatra One';
-
-  padding: 3rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  padding: 2rem;
   width: 100vw;
   height: 100vh;
+
+  position: relative;
 }
 
 .title {
+  font-family: 'Yatra One', sans-serif;
   font-size: 6rem;
   text-align: center;
+  margin-bottom: 3rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 3rem;
 }
 
 #grid-container {
@@ -33,9 +44,46 @@ body {
 
 .grid-square {
   background-color: #fff;
-  border: 1px solid #eee;
+  /* border: 0.5px solid #efefef; */
 }
 
-.colored {
+.control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  background-color: #fff;
+  border: 3px solid #333;
+  padding: 2rem;
+  width: 40rem;
+}
+
+.control-title {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.control-inputs-container {
+  width: 100%;
+  text-align: center;
+}
+
+.control-input-range {
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  padding: 1rem;
+  font: inherit;
+  text-transform: uppercase;
   background-color: #333;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: #444;
+  transform: scale(1.01);
 }

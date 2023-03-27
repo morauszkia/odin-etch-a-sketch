@@ -8,7 +8,9 @@
         <title>Etch-a-Sketch</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&family=Yatra+One&display=swap"
+            rel="stylesheet">
+
         <link rel="stylesheet" href="style.css">
         <script src="app.js" defer></script>
     </head>
@@ -19,6 +21,18 @@
         </header>
         <main>
             <div id="grid-container"></div>
+            <div class="controls">
+                <div class="control size-control">
+                    <p class="control-title">Change size</p>
+                    <div class="control-inputs-container">
+                        <input type="range" class="control-input-range" min="10" max="100" value="16"
+                            id="grid-size-input">
+                        <div id="size-display">16x16</div>
+                    </div>
+                    <button class="btn" id="size-control-btn">New Grid</button>
+                </div>
+
+            </div>
         </main>
     </body>
 
