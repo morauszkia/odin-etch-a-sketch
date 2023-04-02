@@ -41,6 +41,23 @@ const draw = (e) => {
 
     e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
   }
+
+  if (state.mode === 'shade') {
+    const currentColor = getComputedStyle(e.target).backgroundColor;
+    const openingBracketIndex = currentColor.indexOf('(');
+    const closingBracketIndex = currentColor.indexOf(')');
+
+    const darken = (color) => Math.max(color - 25, 0);
+
+    const [newRed, newGreen, newBlue] = currentColor
+      .substring(openingBracketIndex + 1, closingBracketIndex)
+      .split(', ')
+      .map((string) => darken(parseInt(string)));
+
+    const newColor = `rgb(${newRed}, ${newGreen}, ${newBlue})`;
+
+    e.target.style.backgroundColor = newColor;
+  }
 };
 
 const createGrid = () => {
@@ -80,11 +97,6 @@ const colorPickerChangeHandler = (event) => {
   colorPickerCircleEl.style.backgroundColor = pickedColor;
   state.color = pickedColor;
 };
-
-/*
-- random color
-- shades
-*/
 
 /* RESET DEFAULTS */
 const resetApp = () => {
