@@ -26,7 +26,11 @@ let state = { ...DEFAULT_VALUES };
 const draw = (e) => {
   if (e.type === 'mouseover' && !state.isDrawing) return;
 
-  e.target.style.backgroundColor = state.color;
+  if (state.mode === 'pick') {
+    e.target.style.backgroundColor = state.color;
+  } else if (state.mode === 'eraser') {
+    e.target.style.backgroundColor = '#ffffff';
+  }
 };
 
 const createGrid = () => {
@@ -66,13 +70,8 @@ const colorPickerChangeHandler = (event) => {
   colorPickerCircleEl.style.backgroundColor = pickedColor;
   state.color = pickedColor;
 };
-/// React to change
 
-/// Store value to state
-
-/// Update circle background color
 /*
-- pick a color: color picker input
 - random color
 - shades
 - eraser
