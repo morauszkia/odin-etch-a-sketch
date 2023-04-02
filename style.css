@@ -45,6 +45,7 @@ main {
 .grid-square {
   background-color: #fff;
   /* border: 0.5px solid #efefef; */
+  transition: all 0.3s;
 }
 
 .controls {
@@ -79,6 +80,117 @@ main {
   width: 100%;
 }
 
+.radio-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.input-mode {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.circle-mode {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.circle-mode::before {
+  content: '';
+  width: 7.5rem;
+  height: 7.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  position: absolute;
+  border: 5px solid #333;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 0;
+}
+
+.input-mode:checked ~ .circle-mode::before {
+  opacity: 1;
+}
+
+.circle-pick {
+  background-color: #333;
+}
+
+.circle-random {
+  background-image: conic-gradient(
+    rgb(255, 134, 134),
+    rgb(134, 255, 134),
+    rgb(134, 134, 255),
+    rgb(255, 134, 134)
+  );
+}
+
+.circle-shade {
+  background-image: conic-gradient(black, white, black, white, black);
+}
+
+.circle-eraser {
+  border: 1px solid #333;
+}
+
+.text-mode {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.picker-mode {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  width: 7rem;
+  height: 7rem;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  position: relative;
+  visibility: hidden;
+}
+
+.picker-mode::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.picker-mode::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+
+.picker-mode::-webkit-color-swatch {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: none;
+}
+.picker-mode::-moz-color-swatch {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: none;
+}
+
 .btn {
   width: 100%;
   padding: 1rem;
@@ -88,6 +200,7 @@ main {
   color: #fff;
   border: none;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .btn:hover {

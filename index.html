@@ -22,6 +22,33 @@
         <main>
             <div id="grid-container"></div>
             <div class="controls">
+                <div class="control color-control">
+                    <p class="control-title">Choose color mode</p>
+                    <div class="radio-container">
+                        <label for="pick" class="label-mode">
+                            <input type="radio" name="mode" id="pick" value="pick" class="input-mode" checked>
+                            <div class="circle-mode circle-pick">
+                                <input type="color" class="picker-mode" id="color-picker" value="#333333">
+                            </div>
+                            <span class="text-mode">Pick</span>
+                        </label>
+                        <label for="random" class="label-mode">
+                            <input type="radio" name="mode" id="random" value="random" class="input-mode">
+                            <div class="circle-mode circle-random"></div>
+                            <span class="text-mode">Random</span>
+                        </label>
+                        <label for="shade" class="label-mode">
+                            <input type="radio" name="mode" id="shade" value="shade" class="input-mode">
+                            <div class="circle-mode circle-shade"></div>
+                            <span class="text-mode">Shader</span>
+                        </label>
+                        <label for="eraser" class="label-mode">
+                            <input type="radio" name="mode" id="eraser" value="eraser" class="input-mode">
+                            <div class="circle-mode circle-eraser"></div>
+                            <span class="text-mode">Eraser</span>
+                        </label>
+                    </div>
+                </div>
                 <div class="control size-control">
                     <p class="control-title">Change size</p>
                     <div class="control-inputs-container">
