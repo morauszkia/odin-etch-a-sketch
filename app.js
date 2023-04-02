@@ -74,7 +74,6 @@ const colorPickerChangeHandler = (event) => {
 /*
 - random color
 - shades
-- eraser
 */
 
 /* RESET DEFAULTS */
