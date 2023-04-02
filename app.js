@@ -17,7 +17,6 @@ const DEFAULT_VALUES = {
   size: 16,
   mode: 'pick',
   color: '#333333',
-  pickerColor: '#333333',
   isDrawing: false,
 };
 
@@ -62,7 +61,16 @@ const modeChangeHandler = (e) => {
 };
 
 /* HANDLE COLOR PICK */
+const colorPickerChangeHandler = (event) => {
+  const pickedColor = event.target.value;
+  colorPickerCircleEl.style.backgroundColor = pickedColor;
+  state.color = pickedColor;
+};
+/// React to change
 
+/// Store value to state
+
+/// Update circle background color
 /*
 - pick a color: color picker input
 - random color
@@ -75,7 +83,8 @@ const resetApp = () => {
   state = { ...DEFAULT_VALUES };
   sizeInputEl.value = state.size;
   sizeDisplayEl.innerText = `${state.size}x${state.size}`;
-  colorPickerEl.value = state.pickerColor;
+  colorPickerEl.value = state.color;
+  colorPickerCircleEl.style.backgroundColor = state.color;
   modeInputElList.forEach((inputEl) => {
     inputEl.checked = inputEl.value === 'pick' ? true : false;
   });
@@ -93,6 +102,8 @@ sizeControlBtnEl.addEventListener('click', createGrid);
 modeInputElList.forEach((modeInputEl) =>
   modeInputEl.addEventListener('change', modeChangeHandler)
 );
+
+colorPickerEl.addEventListener('change', colorPickerChangeHandler);
 
 eraseBtnEl.addEventListener('click', createGrid);
 resetBtnEl.addEventListener('click', resetApp);

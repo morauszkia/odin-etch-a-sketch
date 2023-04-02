@@ -166,7 +166,7 @@ main {
   cursor: pointer;
   z-index: 100;
   position: relative;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .picker-mode::-webkit-color-swatch-wrapper {
