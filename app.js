@@ -33,6 +33,14 @@ const draw = (e) => {
   if (state.mode === 'eraser') {
     e.target.style.backgroundColor = '#ffffff';
   }
+
+  if (state.mode === 'random') {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+
+    e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+  }
 };
 
 const createGrid = () => {
